@@ -1,0 +1,22 @@
+.btn {
+    padding: 1.2rem 3rem;
+    border: none;
+    text-align: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all .2s;
+    &-primary {
+        color: $color-dark;
+        background-color: $color-primary;
+    }
+    &:not(:disabled) {
+        &:focus {
+            outline: none;
+            background-color: rgba( $color-primary, 0.9);
+        }
+        &:hover{
+            background-color: $color-primary-bright-1;
+        }
+    }
+}
