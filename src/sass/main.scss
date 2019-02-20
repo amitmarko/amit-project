@@ -2,3 +2,8 @@
 @import "./abstracts/variables";
 @import "./base/base";
 @import "./base/typography";
+@import "../containers/dashboard/Dashboard.scss";
+@import "../components/header/Header.scss";
+@import "../containers/searchBar/SearchBar.scss";
+@import "../components/list/List.scss";
+@import "../components/listItem/ListItem.scss";
