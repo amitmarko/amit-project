@@ -24,3 +24,11 @@ export const setSearch = ({ search }) => ({
         search
     }
 });
+
+export const setSort = ({ sort }) => ({
+    type: actionTypes.SET_SORT,
+    payload: {
+        sort
+    }
+});
+

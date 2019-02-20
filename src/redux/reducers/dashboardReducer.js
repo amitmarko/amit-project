@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/_actionsTypes';
 const INIT_STATE = {
     data: [],
     search: '',
+    sort: { value: 'stars', label: 'Stars' },
 };
 
 export default function (state = INIT_STATE, action) {
@@ -11,7 +12,14 @@ export default function (state = INIT_STATE, action) {
             const { search } = action.payload;
             return {
                 ...state,
-                search
+                search,
+            }
+        }
+        case actionTypes.SET_SORT: {
+            const { sort } = action.payload;
+            return {
+                ...state,
+                sort,
             }
 
         }
