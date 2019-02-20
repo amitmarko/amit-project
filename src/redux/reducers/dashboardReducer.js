@@ -1,23 +1,32 @@
 import * as actionTypes from '../actions/_actionsTypes';
 
 const INIT_STATE = {
-    data:[],
+    data: [],
+    search: '',
 };
 
 export default function (state = INIT_STATE, action) {
     switch (action.type) {
+        case actionTypes.SET_SEARCH: {
+            const { search } = action.payload;
+            return {
+                ...state,
+                search
+            }
+
+        }
         case actionTypes.GET_REPOSITORIES: {
-            return{
+            return {
                 ...state,
             }
         }
         case actionTypes.GET_REPOSITORIES_SUCCESS: {
-            return{
+            return {
                 ...state,
             }
         }
         case actionTypes.GET_REPOSITORIES_FAILED: {
-            return{
+            return {
                 ...state,
             }
         }
