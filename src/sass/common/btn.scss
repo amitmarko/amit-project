@@ -1,5 +1,6 @@
 .btn {
     padding: 1.2rem 3rem;
+    width: 13rem;
     border: none;
     text-align: center;
     font-size: 1.6rem;
@@ -15,8 +16,17 @@
             outline: none;
             background-color: rgba( $color-primary, 0.9);
         }
-        &:hover{
+        &:hover {
             background-color: $color-primary-bright-1;
         }
+    }
+    &-loading {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        border: 5px solid #FFFEEE;
+        border-radius: 100%;
+        border-top: 5px solid transparent;
+        animation: load-animate infinite linear 1s;
     }
 }

@@ -25,7 +25,8 @@ class SearchBar extends Component {
     }
 
     render() {
-        const { dashboardData: { search, sort } } = this.props;
+        const { dashboardData: { search, sort, isLoad } } = this.props;
+        const buttonText = !isLoad ? 'Submit' : <span className='btn-loading' />
         return (
             <div className='search-bar'>
                 <div className='search-bar__content'>
@@ -51,7 +52,7 @@ class SearchBar extends Component {
                         />
                     </div>
                     <div className='search-bar__item search-bar__item-btn'>
-                        <button className='btn btn-primary' onClick={this.clickSearch}>Submit</button>
+                        <button className='btn btn-primary' onClick={this.clickSearch} disabled={isLoad}>{buttonText}</button>
                     </div>
                 </div>
             </div>
