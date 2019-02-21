@@ -11,7 +11,6 @@ const INIT_STATE = {
         { value: 'stars', label: 'stars' },
 };
 
-
 export default function (state = INIT_STATE, action) {
     switch (action.type) {
         case actionTypes.SET_SEARCH: {
