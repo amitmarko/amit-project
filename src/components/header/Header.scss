@@ -5,4 +5,7 @@
     background-position: center;
     background-repeat: no-repeat;
     animation: moveInLeft 1s;
+    @include respond(phone){
+        height: 10rem;
+    }
 }
