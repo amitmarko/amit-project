@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import { connect } from 'react-redux';
-import { setSearch, setSort } from '../../redux/actions/dashboardActions';
+import { setSearch, setSort, getRepositories } from '../../redux/actions/dashboardActions';
 
 const options = [
     { value: 'stars', label: 'stars' },
@@ -15,8 +15,13 @@ class SearchBar extends Component {
         this.props.setSearch({ search: event.target.value })
     }
 
-    handleChange = (selectedOption) => {
+    sortChange = (selectedOption) => {
         this.props.setSort({ sort: selectedOption });
+    }
+
+    clickSearch = () => {
+        const { dashboardData: { search } } = this.props;
+        this.props.getRepositories({ search });
     }
 
     render() {
@@ -39,14 +44,14 @@ class SearchBar extends Component {
                         <label htmlFor="sort" className='search-bar__label'>Sort By:</label>
                         <Select
                             value={sort}
-                            onChange={this.handleChange}
+                            onChange={this.sortChange}
                             options={options}
                             className='search-bar__select'
                             id='sort'
                         />
                     </div>
                     <div className='search-bar__item search-bar__item-btn'>
-                        <button className='btn btn-primary'>Submit</button>
+                        <button className='btn btn-primary' onClick={this.clickSearch}>Submit</button>
                     </div>
                 </div>
             </div>
@@ -60,4 +65,4 @@ const mapStateToProps = ({ dashboardData }) => {
     }
 }
 
-export default connect(mapStateToProps, { setSearch, setSort })(SearchBar);
+export default connect(mapStateToProps, { setSearch, setSort, getRepositories })(SearchBar);

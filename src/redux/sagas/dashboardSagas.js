@@ -5,10 +5,10 @@ import * as api from '../api/dashboardApi';
 
 function* getRepositories(action) {
     try {
-        const { text } = action.payload;
-        const result = yield call(api.getRepositories, text);
+        const { search } = action.payload;
+        const result = yield call(api.getRepositories, search);
         yield put(dashboardAction.getRepositoriesSuccess({
-            repositories: result.data
+            repositories: result.data.items
         }));
     } catch (e) {
         yield put(dashboardAction.getRepositoriesFailed());

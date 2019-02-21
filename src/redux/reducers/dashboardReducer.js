@@ -4,6 +4,7 @@ const storage = new storageService();
 
 const INIT_STATE = {
     data: [],
+    isLoad: false,
     search: storage.getItem('search') ? storage.getItem('search') : '',
     sort: storage.getItem('sort') ?
         { value: storage.getItem('sort'), label: storage.getItem('sort') } :
@@ -33,11 +34,15 @@ export default function (state = INIT_STATE, action) {
         case actionTypes.GET_REPOSITORIES: {
             return {
                 ...state,
+                isLoad: true,
             }
         }
         case actionTypes.GET_REPOSITORIES_SUCCESS: {
+            const { repositories } = action.payload;
             return {
                 ...state,
+                data: repositories,
+                isLoad: false,
             }
         }
         case actionTypes.GET_REPOSITORIES_FAILED: {
