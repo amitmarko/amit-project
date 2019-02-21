@@ -4,7 +4,8 @@
     padding: 2rem 3rem;
     border-radius: 7px;
     margin: 1rem 0;
-    box-shadow: 0px 8px 16px 0px rgba(32, 35, 42, 0.4);
+    box-shadow: 0px 8px 16px 0px rgba(32, 35, 42, 0.2);
+    animation: shadowFade 1s;
     transition: all .2s;
     cursor: pointer;
     &:hover{
