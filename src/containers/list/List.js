@@ -8,8 +8,6 @@ class List extends Component {
 
     render() {
         const { list, isLoad } = this.props;
-        console.log('list', list);
-        console.log('isLoad', isLoad)
         return (
             <div className='list'>
                 {list.map((data, index) => <ListItem data={data} key={index} />)}
