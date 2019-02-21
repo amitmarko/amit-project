@@ -3,6 +3,9 @@
     background-color: $color-dark;
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.16);
+    @include respond(phone) {
+        height: fit-content;
+    }
     &__content {
         max-width: 1400px;
         width: 80%;
@@ -10,29 +13,54 @@
         display: flex;
         margin: 0 auto;
         align-items: center;
+        @include respond(tab-land) {
+            width: 95%;
+        }
+        @include respond(phone) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
     &__item {
         display: flex;
         align-items: center;
         &:not(:last-child) {
             margin-right: 5rem;
+            @include respond(tab-port) {
+                margin-right: 2rem;
+            }
+        }
+        @include respond(phone) {
+            margin: 1rem 0 1rem 0;
         }
         &-btn {
             margin-left: auto;
+            @include respond(phone) {
+                margin: 1rem 0 1rem 0;
+                width: 100%;
+            }
         }
     }
     &__input {
         padding: 1.2rem 2rem;
-        width: 25rem;
+        max-width: 25rem;
+        width: 100%;
         border: none;
         border-radius: 4px;
         font-size: 1.6rem;
         color: $color-dark;
+        @include respond(tab-port) {
+            max-width: 14.5rem;
+        }
+        @include respond(phone) {
+            max-width: 25rem;
+        }
     }
     &__select {
         width: 15rem;
         font-size: 1.6rem;
         cursor: pointer;
+        text-transform: capitalize;
     }
     &__label {
         color: $color-white;

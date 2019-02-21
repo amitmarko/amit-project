@@ -7,6 +7,13 @@
     cursor: pointer;
     border-radius: 8px;
     transition: all .2s;
+    @include respond(tab-port){
+        padding: 1rem 2.5rem;
+        width: 10rem;
+    }
+    @include respond(phone){
+        width: 100%;
+    }
     &-primary {
         color: $color-dark;
         background-color: $color-primary;
