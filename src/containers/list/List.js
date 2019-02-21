@@ -9,7 +9,7 @@ class List extends Component {
     renderLoader = () => {
         const loader = [];
         for (let i = 0; i < Github.limit; i++)
-            loader.push(<Loader />);
+            loader.push(<Loader key={i} />);
         return loader;
     }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const ListItem = ({ data }) => {
     const { full_name, description, forks } = data;
