@@ -34,7 +34,7 @@ class SearchBar extends Component {
     render() {
         const { dashboardData: { search, sort, isLoad } } = this.props;
         const { selectOptions } = this.state;
-        const buttonText = !isLoad ? 'Submit' : <span className='btn-loading' />
+        const buttonText = !isLoad ? 'Search' : <span className='btn-loading' />
         return (
             <div className='search-bar'>
                 <div className='search-bar__content'>
