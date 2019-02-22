@@ -1,4 +1,4 @@
-# Project Title
+# IronSource Assignment
 
 This is an ironSource assignment:
 An application for searching a GitHub repositories.
