@@ -1,16 +1,23 @@
 .view {
     margin-top: 1.2rem;
+    padding: 0 2rem;
     &__name {
         text-align: center;
         font-size: 5rem;
         color: $color-primary;
         font-weight: 700;
+        word-wrap: break-word;
+        @include respond(phone) {
+            font-size: 3.5rem;
+        }
     }
     &__buttons {
         margin-top: 4rem;
         display: flex;
         justify-content: center;
-        padding: 0 2rem;
+        @include respond(phone) {
+            flex-direction: column;
+        }
     }
     &__btn {
         padding: 1.3rem 2rem;
@@ -23,6 +30,13 @@
         font-size: 2rem;
         text-align: center;
         cursor: pointer;
+        @include respond(phone) {
+            max-width: 100%;
+            width: 100%;
+            &:not(:last-child) {
+                margin:0 0 1.5rem 0;
+            }
+        }
         &:not(:last-child) {
             margin-right: 5rem;
         }
