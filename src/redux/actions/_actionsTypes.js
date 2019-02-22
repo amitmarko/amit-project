@@ -6,3 +6,5 @@ export const GET_REPOSITORIES_FAILED = 'get_repositories_failed';
 export const SET_SEARCH = 'set_search';
 // SET SORT
 export const SET_SORT = 'set_sort';
+// INIT REPOSITORIES
+export const INIT_REPOSITORIES = 'init_repositories';

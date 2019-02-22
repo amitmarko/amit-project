@@ -54,6 +54,12 @@ export default function (state = INIT_STATE, action) {
                 ...state,
             }
         }
+        case actionTypes.INIT_REPOSITORIES: {
+            return {
+                ...state,
+                data: [],
+            }
+        }
         default: {
             return state;
         }

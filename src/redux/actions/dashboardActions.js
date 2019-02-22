@@ -32,3 +32,9 @@ export const setSort = ({ sort }) => ({
     }
 });
 
+export const initRepositories = () => ({
+    type: actionTypes.INIT_REPOSITORIES
+});
+
+
+

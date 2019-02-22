@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import { connect } from 'react-redux';
-import { setSearch, setSort, getRepositories } from '../../redux/actions/dashboardActions';
-
-const options = [
-    { value: 'stars', label: 'stars' },
-    { value: 'forks', label: 'forks' },
-    { value: 'update', label: 'update' }
-];
+import { setSearch, setSort, getRepositories, initRepositories } from '../../redux/actions/dashboardActions';
 
 class SearchBar extends Component {
+
+
+    state = {
+        selectOptions: [
+            { value: 'stars', label: 'stars' },
+            { value: 'forks', label: 'forks' },
+            { value: 'update', label: 'update' }
+        ]
+    }
 
     searchChange = (event) => {
         this.props.setSearch({ search: event.target.value })
@@ -21,11 +24,16 @@ class SearchBar extends Component {
 
     clickSearch = () => {
         const { dashboardData: { search } } = this.props;
-        this.props.getRepositories({ search });
+        if (search !== '') {
+            this.props.getRepositories({ search });
+        } else {
+            this.props.initRepositories();
+        }
     }
 
     render() {
         const { dashboardData: { search, sort, isLoad } } = this.props;
+        const { selectOptions } = this.state;
         const buttonText = !isLoad ? 'Submit' : <span className='btn-loading' />
         return (
             <div className='search-bar'>
@@ -46,7 +54,7 @@ class SearchBar extends Component {
                         <Select
                             value={sort}
                             onChange={this.sortChange}
-                            options={options}
+                            options={selectOptions}
                             className='search-bar__select'
                             id='sort'
                         />
@@ -66,4 +74,4 @@ const mapStateToProps = ({ dashboardData }) => {
     }
 }
 
-export default connect(mapStateToProps, { setSearch, setSort, getRepositories })(SearchBar);
+export default connect(mapStateToProps, { setSearch, setSort, getRepositories, initRepositories })(SearchBar);

@@ -6,11 +6,15 @@ import { connect } from 'react-redux';
 
 class List extends Component {
 
-    renderLoader = () => {
+    state = {
+        loader: [],
+    }
+
+    componentDidMount = () => {
         const loader = [];
         for (let i = 0; i < Github.limit; i++)
             loader.push(<Loader key={i} />);
-        return loader;
+        this.setState({ loader });
     }
 
     renderList = () => {
@@ -20,10 +24,11 @@ class List extends Component {
 
     render() {
         const { isLoad } = this.props;
+        const { loader } = this.state;
         return (
             <div className='list'>
                 {isLoad ?
-                    this.renderLoader() :
+                    loader :
                     this.renderList()
                 }
             </div>
