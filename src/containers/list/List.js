@@ -19,7 +19,7 @@ class List extends Component {
 
     renderList = () => {
         const { list } = this.props;
-        return list.map((data, index) => <ListItem data={data} key={index} />)
+        return list.map((data, index) => <ListItem data={data} key={index} index={index} />)
     }
 
     render() {

@@ -34,7 +34,6 @@
     }
 }
 
-
 %animated-images {
     animation-duration: .7s;
     animation-fill-mode: forwards;
@@ -54,5 +53,23 @@
     }
     100% {
         background-position: 468px 0
+    }
+}
+
+@keyframes comeFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes comeFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translate(0);
     }
 }
