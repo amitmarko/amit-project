@@ -79,7 +79,7 @@ function sortRepositories({ value, repositories }) {
     repositories.sort((a, b) => {
         // sort by date
         if (value === 'updated_at') {
-            return new Date(a[value]) - new Date(b[value]);
+            return new Date(b[value]) - new Date(a[value]);
         } else {
             // sort by numbers
             if (a[value] > b[value]) return -1;
