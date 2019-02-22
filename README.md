@@ -1,6 +1,7 @@
 # Project Title
 
-I have done an application for searching a GitHub repositories.
+This is an ironSource assignment:
+An application for searching a GitHub repositories.
 
 ## Getting Started
 
@@ -27,16 +28,8 @@ npm run start
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Amit Markovich** - *Initial work* - [AmitMarko](https://github.com/amitmarko)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
