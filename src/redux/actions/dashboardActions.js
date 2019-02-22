@@ -1,9 +1,10 @@
 import * as actionTypes from './_actionsTypes';
 
-export const getRepositories = ({ search }) => ({
+export const getRepositories = ({ search, sort }) => ({
     type: actionTypes.GET_REPOSITORIES,
     payload: {
-        search
+        search,
+        sort
     }
 });
 

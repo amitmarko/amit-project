@@ -5,8 +5,8 @@ import * as api from '../api/dashboardApi';
 
 function* getRepositories(action) {
     try {
-        const { search } = action.payload;
-        const result = yield call(api.getRepositories, search);
+        const { search, sort } = action.payload;
+        const result = yield call(api.getRepositories, { search, sort });
         yield put(dashboardAction.getRepositoriesSuccess({
             repositories: result.data.items
         }));

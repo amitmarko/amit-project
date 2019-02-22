@@ -23,9 +23,9 @@ class SearchBar extends Component {
     }
 
     clickSearch = () => {
-        const { dashboardData: { search } } = this.props;
+        const { dashboardData: { search, sort } } = this.props;
         if (search !== '') {
-            this.props.getRepositories({ search });
+            this.props.getRepositories({ search, sort: sort.value });
         } else {
             this.props.initRepositories();
         }

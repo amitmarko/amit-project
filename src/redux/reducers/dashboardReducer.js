@@ -24,12 +24,9 @@ export default function (state = INIT_STATE, action) {
         }
         case actionTypes.SET_SORT: {
             const { sort } = action.payload;
-            const repositories = JSON.parse(JSON.stringify(state.data));
             storage.store('sort', sort.value);
-            sortRepositories({ value: sort.value, repositories });
             return {
                 ...state,
-                data: repositories,
                 sort,
             }
 
@@ -43,8 +40,6 @@ export default function (state = INIT_STATE, action) {
         case actionTypes.GET_REPOSITORIES_SUCCESS: {
             const { repositories } = action.payload;
             const searchEmpty = repositories.length === 0;
-            const { sort: { value } } = state;
-            sortRepositories({ value, repositories });
             return {
                 ...state,
                 data: repositories,
@@ -69,22 +64,3 @@ export default function (state = INIT_STATE, action) {
         }
     }
 };
-
-function sortRepositories({ value, repositories }) {
-    if (value === 'stars') {
-        value = 'stargazers_count';
-    } else if (value === 'update') {
-        value = 'updated_at';
-    }
-    repositories.sort((a, b) => {
-        // sort by date
-        if (value === 'updated_at') {
-            return new Date(b[value]) - new Date(a[value]);
-        } else {
-            // sort by numbers
-            if (a[value] > b[value]) return -1;
-            if (a[value] === b[value]) return 0;
-            return 1;
-        }
-    });
-}
