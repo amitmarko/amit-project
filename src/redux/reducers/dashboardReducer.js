@@ -5,6 +5,7 @@ const storage = new storageService();
 const INIT_STATE = {
     data: [],
     isLoad: false,
+    searchEmpty: false,
     search: storage.getItem('search') ? storage.getItem('search') : '',
     sort: storage.getItem('sort') ?
         { value: storage.getItem('sort'), label: storage.getItem('sort') } :
@@ -41,16 +42,19 @@ export default function (state = INIT_STATE, action) {
         }
         case actionTypes.GET_REPOSITORIES_SUCCESS: {
             const { repositories } = action.payload;
+            const searchEmpty = repositories.length === 0;
             const { sort: { value } } = state;
             sortRepositories({ value, repositories });
             return {
                 ...state,
                 data: repositories,
                 isLoad: false,
+                searchEmpty,
             }
         }
         case actionTypes.GET_REPOSITORIES_FAILED: {
             return {
+                searchEmpty: true,
                 ...state,
             }
         }
