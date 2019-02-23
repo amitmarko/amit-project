@@ -22,7 +22,8 @@ class SearchBar extends Component {
         this.props.setSort({ sort: selectedOption });
     }
 
-    clickSearch = () => {
+    clickSearch = (event) => {
+        event.preventDefault();
         const { dashboardData: { search, sort } } = this.props;
         if (search !== '') {
             this.props.getRepositories({ search, sort: sort.value });
@@ -37,7 +38,7 @@ class SearchBar extends Component {
         const buttonText = !isLoad ? 'Search' : <span className='btn-loading' />
         return (
             <div className='search-bar'>
-                <div className='search-bar__content'>
+                <form className='search-bar__content' onSubmit={this.clickSearch}>
                     <div className='search-bar__item'>
                         <label
                             htmlFor="text"
@@ -47,6 +48,7 @@ class SearchBar extends Component {
                             className='search-bar__input'
                             id='text'
                             onChange={this.searchChange}
+                            autoFocus
                             value={search} />
                     </div>
                     <div className='search-bar__item'>
@@ -60,9 +62,9 @@ class SearchBar extends Component {
                         />
                     </div>
                     <div className='search-bar__item search-bar__item-btn'>
-                        <button className='btn btn-primary' onClick={this.clickSearch} disabled={isLoad}>{buttonText}</button>
+                        <button className='btn btn-primary' disabled={isLoad}>{buttonText}</button>
                     </div>
-                </div>
+                </form>
             </div>
         );
     }

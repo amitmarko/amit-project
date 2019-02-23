@@ -13,8 +13,10 @@ class Dashboard extends Component {
         const { searchEmpty } = this.props;
         return (
             <div className='dashboard'>
-                <Header />
-                <SearchBar />
+                <div>
+                    <Header />
+                    <SearchBar />
+                </div>
                 {!searchEmpty ?
                     <List /> :
                     <Error />
