@@ -8,6 +8,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './redux/sagas/_sagas';
 import * as serviceWorker from './serviceWorker';
 
+// Connect saga middleware to redux
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducers, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
