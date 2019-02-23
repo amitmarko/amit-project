@@ -24,7 +24,7 @@ class SearchBar extends Component {
 
     clickSearch = (event) => {
         event.preventDefault();
-        const { dashboardData: { search, sort } } = this.props;
+        const { search, sort } = this.props;
         if (search !== '') {
             this.props.getRepositories({ search, sort: sort.value });
         } else {
@@ -33,7 +33,7 @@ class SearchBar extends Component {
     }
 
     render() {
-        const { dashboardData: { search, sort, isLoad } } = this.props;
+        const { search, sort, isLoad } = this.props;
         const { selectOptions } = this.state;
         const buttonText = !isLoad ? 'Search' : <span className='btn-loading' />
         return (
@@ -72,8 +72,15 @@ class SearchBar extends Component {
 
 const mapStateToProps = ({ dashboardData }) => {
     return {
-        dashboardData,
+        ...dashboardData,
     }
 }
 
-export default connect(mapStateToProps, { setSearch, setSort, getRepositories, initRepositories })(SearchBar);
+const mapDispatchToProps = (dispatch) => ({
+    setSearch: (search) => dispatch(setSearch(search)),
+    setSort: (sort) => dispatch(setSort(sort)),
+    getRepositories: ({ search, sort }) => dispatch(getRepositories({ search, sort })),
+    initRepositories: () => dispatch(initRepositories()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

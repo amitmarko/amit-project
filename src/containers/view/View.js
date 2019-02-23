@@ -36,7 +36,14 @@ class View extends Component {
                     {repoName}
                 </div>
                 <div className='view__buttons'>
-                    <a href={url} target="_blank" className={`view__btn view__btn-link ${disabled}`} onClick={() => this.setState({ linkClicked: true })}>Open on GitHub</a>
+                    <a
+                        href={url}
+                        target="_blank"
+                        className={`view__btn view__btn-link ${disabled}`}
+                        onClick={() => this.setState({ linkClicked: true })}
+                        rel="noopener noreferrer">
+                        Open on GitHub
+                        </a>
                     <Link to='/' className='view__btn view__btn-back'>Back</Link>
                 </div>
             </div>
