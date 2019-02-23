@@ -1,6 +1,7 @@
 class storageService {
 
     store = (key, val) => {
+        //Encoded Key and Val
         key = window.btoa(key);
         val = window.btoa(val);
         localStorage.setItem(key, val);
@@ -11,6 +12,7 @@ class storageService {
     }
 
     getItem = (key) => {
+        //Decoded Key and Val
         key = window.btoa(key);
         const value = localStorage.getItem(key);
         return value ? window.atob(value) : null;
